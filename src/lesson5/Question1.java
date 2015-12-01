@@ -4,8 +4,8 @@ import java.time.LocalDate;
 import java.util.Scanner;
 
 class DeptEmployee {
-	String name;
-	LocalDate hiredate;
+	private String name;
+	private LocalDate hiredate;
 	double salary;
 
 	DeptEmployee(String name, LocalDate hiredate, double salary) {
