@@ -3,81 +3,6 @@ package lesson5;
 import java.time.LocalDate;
 import java.util.Scanner;
 
-class DeptEmployee {
-	String name;
-	LocalDate hiredate;
-	double salary;
-
-	DeptEmployee(String name, LocalDate hiredate, double salary) {
-		this.name = name;
-		this.hiredate = hiredate;
-		this.salary = salary;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public LocalDate getHiredate() {
-		return hiredate;
-	}
-
-	public void setHiredate(LocalDate hiredate) {
-		this.hiredate = hiredate;
-	}
-
-	double computeSalary() {
-		return this.salary;
-	}
-
-}
-
-class Professor extends DeptEmployee {
-	int numberOfPublications;
-
-	public int getNumberOfPublications() {
-		return numberOfPublications;
-	}
-
-	public void setNumberOfPublications(int numberOfPublications) {
-		this.numberOfPublications = numberOfPublications;
-	}
-
-	Professor(String name, LocalDate hdate, double salary,
-			int numberOfPublications) {
-		super(name, hdate, salary);
-		this.numberOfPublications = numberOfPublications;
-	}
-}
-
-class Secretary extends DeptEmployee {
-	double overtimeHours;
-
-	// DeptEmployee de = new DeptEmployee();
-
-	Secretary(String name, LocalDate hdate, double salary, double overtime) {
-		super(name, hdate, salary);
-		this.overtimeHours = overtime;
-	}
-
-	public double getOvertimeHours() {
-		return overtimeHours;
-	}
-
-	public void setOvertimeHours(double overtimeHours) {
-		this.overtimeHours = overtimeHours;
-	}
-
-	double computeSalary() {
-
-		return super.computeSalary() + 12 * overtimeHours;
-	}
-}
-
 public class Question1 {
 	public static void main(String[] args) {
 		double sumProfessor = 0.0;
@@ -145,7 +70,6 @@ public class Question1 {
 			// System.out.println(count);
 
 		} while (choice.equals("N"));
-
 		input.close();
 
 	}
