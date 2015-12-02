@@ -2,14 +2,14 @@ package lesson5;
 
 import java.util.Scanner;
 
-public class Rectangle extends Shape {
+public class Circle extends Shape {
 
-	private double width;
-	private double height;
+	private double radius;
+
 	String state;
-	private String Shape = "Rectangle";
+	// private String Shape="Circle";
 
-	public Rectangle() {
+	public Circle() {
 		readShapeData();
 		// System.out.println("This is :"+getShapeName());
 		// System.out.println("Area is: "+computeArea());
@@ -21,29 +21,27 @@ public class Rectangle extends Shape {
 	@Override
 	public String getShapeName() {
 		// TODO Auto-generated method stub
-		return Shape;
+		return toString();
 	}
 
 	@Override
 	public double computeArea() {
 		// TODO Auto-generated method stub
-		return width * height;
+		return Math.PI * radius * radius;
 	}
 
 	@Override
 	public double computePerimeter() {
 		// TODO Auto-generated method stub
-		return (2 * width) + (2 * height);
+		return 2 * Math.PI * radius;
 	}
 
 	@Override
 	public void readShapeData() {
 		// TODO Auto-generated method stub
 		Scanner input = new Scanner(System.in);
-		System.out.println("Enter the Width: ");
-		this.width = input.nextDouble();
-		System.out.println("Enter the Height: ");
-		this.height = input.nextDouble();
+		System.out.println("Enter the Radius: ");
+		this.radius = input.nextDouble();
 		input.close();
 
 	}
