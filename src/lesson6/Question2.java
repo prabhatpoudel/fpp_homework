@@ -2,6 +2,7 @@ package lesson6;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -24,13 +25,13 @@ public class Question2 {
 		blue= new JButton("Blue");
 		indigo= new JButton("Indigo");
 		violet= new JButton("Violet");
-		panel= new JPanel(new FlowLayout(FlowLayout.CENTER));
+		panel= new JPanel(new FlowLayout(FlowLayout.LEFT));
 		
 	  final Color VIOLET = new Color(138, 43, 226); 
       final Color INDIGO = new Color(75, 0, 130);   
 		
 		frame.setVisible(true);
-		frame.setSize(600, 300);
+		frame.setSize(800, 200);
 		frame.setTitle("Rainbow Color Frame");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		// if Using frame uncomment this part
@@ -39,7 +40,7 @@ public class Question2 {
 
 		//For the use of Panel
           frame.add(panel);
-          panel.setSize(600,300);
+          panel.setSize(800,200);
 
 		
 /* If Using Frame uncomment this part
@@ -67,25 +68,25 @@ public class Question2 {
 */		
 
           // Use of Panel
-		red.setSize(100, 100);
-		red.setBackground(Color.red);
+        red.setPreferredSize(new Dimension(100, 100));
+  		red.setBackground(Color.red);
 		panel.add(red);
-		orange.setSize(100, 100);
+		orange.setPreferredSize(new Dimension(100, 100));
 		orange.setBackground(Color.orange);
 		panel.add(orange);
-		yellow.setSize(100, 100);
+		yellow.setPreferredSize(new Dimension(100, 100));
 		yellow.setBackground(Color.yellow);
 		panel.add(yellow);
-		green.setSize(100, 100);
+		green.setPreferredSize(new Dimension(100, 100));
 		green.setBackground(Color.green);
 		panel.add(green);
-		blue.setSize(100, 100);
+		blue.setPreferredSize(new Dimension(100, 100));
 		blue.setBackground(Color.blue);
 		panel.add(blue);
-		indigo.setSize(100, 100);
+		indigo.setPreferredSize(new Dimension(100, 100));
 		indigo.setBackground(INDIGO);
 		panel.add(indigo);
-		violet.setSize(100, 100);
+		violet.setPreferredSize(new Dimension(100, 100));
 		violet.setBackground(VIOLET);
 		panel.add(violet);
 		
