@@ -16,7 +16,7 @@ public class ExtraCredit {
 	{
 		// Container Declaration
 		frame= new JFrame();
-		frame.setSize(500, 750);
+		frame.setSize(700, 750);
 		frame.setVisible(true);
 //		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -26,12 +26,14 @@ public class ExtraCredit {
 
 		
 		frame.add(panel1);
-//		panel1.setBounds(0, 0, 250, 800);
-		panel1.setSize(250,750);
+
+		//panel1.setSize(250,750);
+		panel1.setBounds(0,0,350,750);
+		
 		
 		frame.add(panel2);
-//		panel2.setBounds(260, 0, 250, 800);
-		panel2.setSize(250,750);
+
+		panel2.setBounds(400,0,350,750);
 		panel2.setBackground(Color.RED);
 		
 		// Component Declaration for panel1
@@ -47,7 +49,8 @@ public class ExtraCredit {
 		suitableSession= new JLabel("Suitable Session: ");
 		message= new JLabel("Message");
 		
-
+// component declaration for the panel2
+		JButton submit = new JButton("Submit");
 		
 		message.setBounds(0,500,100,100);
 		suitableSession.setBounds(0,450,100,100);
@@ -59,6 +62,8 @@ public class ExtraCredit {
 		street.setBounds(0,150,100,100);
 		lastName.setBounds(0,100,100,100);
 		firstName.setBounds(0,50,100,100);
+		
+//		submit.setBounds(400,100,100,100);
 		
 		//Adding Component to the panel1
 		panel1.add(firstName);
@@ -72,6 +77,8 @@ public class ExtraCredit {
 		panel1.add(suitableSession);
 		panel1.add(message);
 		
+		//adding component to the panel2
+		panel2.add(submit);
 	}
 	
 	public static void main(String [] args)
