@@ -120,7 +120,10 @@ public class Question1 extends JFrame {
 		convert.setText("Convert");
 		frame.add(convert);
 
-		
+		convert.addActionListener(evt -> 
+		{
+			opTextKm.setText(inTextMile.getText()*1.6);
+		});
 	}
 	
 public static void main(String args[])
