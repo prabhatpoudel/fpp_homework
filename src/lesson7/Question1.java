@@ -73,19 +73,19 @@ public class Question1 extends JFrame {
 		frame.add(fahr);
 		
 		inTextMile.setBounds(65, 10, 90, 30);
-//		inTextMile.setText("Mile");
+		inTextMile.setText(null);
 		frame.add(inTextMile);
 		
 		inTextPound.setBounds(65, 50, 90, 30);
-//		inTextPound.setText("Pound");
+		inTextPound.setText(null);
 		frame.add(inTextPound);
 		
 		inTextGallon.setBounds(65, 90, 90, 30);
-//		inTextGallon.setText("Gallon");
+		inTextGallon.setText(null);
 		frame.add(inTextGallon);
 		
 		inTextFahr.setBounds(65, 130, 90, 30);
-//		inTextFahr.setText("Fahrenheit ");
+		inTextFahr.setText(null);
 		frame.add(inTextFahr);
 		
 		km.setBounds(180, 10, 90, 30);
@@ -122,7 +122,46 @@ public class Question1 extends JFrame {
 
 		convert.addActionListener(evt -> 
 		{
-			opTextKm.setText(inTextMile.getText()*1.6);
+			
+			double km=0;
+			double kg=0;
+			double ltr=0;
+			double cen=0;
+			
+			
+			if(inTextMile.getText().equals(""))
+			 { opTextKm.setText("0"); }
+			else
+			{
+				km=1.6*Integer.parseInt(inTextMile.getText()) ;
+				//if((int) inTextMile.getText() )
+				opTextKm.setText(Double.toString(km));
+				}
+
+			
+			if(!inTextPound.getText().equals(""))
+			{
+				kg=0.45*Integer.parseInt(inTextPound.getText()) ;
+				opTextKg.setText(Double.toString(kg));
+			}
+			else { opTextKg.setText("0"); }
+			
+			if(!inTextGallon.getText().equals(""))
+			{
+			ltr=3.79*Integer.parseInt(inTextGallon.getText()) ;
+			//if((int) inTextMile.getText() )
+			opTextLtr.setText(Double.toString(ltr));
+			}
+			else { opTextLtr.setText("0"); }
+			
+			if(!inTextFahr.getText().equals(""))
+			{
+				cen=((Integer.parseInt(inTextFahr.getText()))-30)/2 ;
+				opTextCenti.setText(Double.toString(cen));
+			}
+			else { opTextCenti.setText("0"); }
+
+			
 		});
 	}
 	
