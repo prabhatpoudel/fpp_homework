@@ -1,6 +1,8 @@
 package lesson8;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 class Marketing {
 	String employeename;
@@ -14,7 +16,31 @@ class Marketing {
 	 this.salesamount=samount;
 	}
 	
+	public String toString()
+	{
+		return "Employee Name is "+employeename + " \t ProductName is: "+productname + "\t Sales Amount is: "+salesamount;
+	}
 	
+	public static final Comparator ENAME = new Comparator() {
+
+		@Override
+		public int compare(Object o1, Object o2) {
+			// TODO Auto-generated method stub
+			
+			String ename1 = ((Marketing)o1).employeename;
+			String ename2 = ((Marketing)o1).employeename;
+			return ename1.compareTo(ename2);
+		}
+	};
+	
+	public static final Comparator PNAME = new Comparator(){
+		@Override
+		public int compare(Object o1, Object o2) {
+			String pname1 = ((Marketing)o1).productname;
+			String pname2 = ((Marketing)o1).productname;
+			return pname1.compareTo(pname2);
+		}
+	};
 
 }
 
@@ -29,16 +55,14 @@ public class Question2 {
 		list.add(m1);
 		list.add(m2);
 		list.add(m3);
-	}
-	
-	public String toString(){
-		StringBuilder sb = new StringBuilder("[");
-		for(int i = 0; i < size-1; ++i){
-			sb.append(list[i]+", ");
-		}
-		sb.append(strArray[size-1]+"]");
 		
-		return sb.toString();
+		list.set(2, new Marketing("Govinda", "ASUS", 750));
+		
+		list.remove(2);
+		
+		Collections.sort(list, Marketing.ENAME);
+		
+		Collections.sort(list, Marketing.PNAME);
 	}
 
 
