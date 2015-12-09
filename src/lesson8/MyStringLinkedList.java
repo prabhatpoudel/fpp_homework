@@ -24,15 +24,19 @@ public class MyStringLinkedList {
 			header=new Node(null, item,null);
 		else
 		{
-			Node n = new Node(header,item,null);
-			header.next=n;
-			header = n;
-			
+			Node temp = header;
+			while(temp.next!=null)
+			{
+//				System.out.println(temp.next);
+				temp=temp.next;
+			}
+			Node n = new Node(temp,item,null);
+			n.previous=temp;
+			temp.next=n;
+//			System.out.println(n.previous);
 		}
 		
 	}
-
-
 	// implement the code
 	public void postAddNode(Node n, String value){
 		Node newNode;
@@ -47,7 +51,7 @@ public class MyStringLinkedList {
 		else
 		{
 			newNode = new Node(n,value,n.next);
-			n.next.previous=n;
+			n.next.previous=newNode;
 			n.next=newNode;
 		}
 					
@@ -55,17 +59,29 @@ public class MyStringLinkedList {
 // implement the code
 
        public int Size(){
+    	   int count =0;
+    	   if(header == null)
+    	   {
+    		   return 0;
+    	   }
+    	  Node temp = header;
+    	   while (temp.next != null)
+    	   {
+    		 count++;   
+    		 temp=temp.next;
+    	   }
+    	   return count;
+    	   
        }
 
 // implement code
     public boolean isEmpty()
 {
+    	if(header == null)
+    		return true;
+    	else return false;
 }  
 
- 
-
-       
-	
 	public void preAddNode(Node n, String value){
 		Node newNode;
 		if (n == null){
@@ -172,6 +188,19 @@ public class MyStringLinkedList {
 		str = str + "==>[" + "NULL" + "]";
 		System.out.println(str);
 	}
+	public Object getFirst(){
+		
+	}
+	public Object getLast(){
+		
+	}
+	public void removeFirst(){
+		
+	}
+	public void removeLast(){
+		
+	}
+
 	
 	public class Node {
 		String value;
@@ -191,50 +220,43 @@ public class MyStringLinkedList {
 
 	public static void main(String[] args) {
 		MyStringLinkedList mySL = new MyStringLinkedList();
+		mySL.addFront("B");
+		mySL.addFront("A");
+//		System.out.println(mySL);
+		mySL.addLast("C");
 		System.out.println(mySL);
-		mySL.printReverse();
-		mySL.addFront("Carrot Cake");
+		mySL.preAddNode(mySL.findItem("B"), "AA");
 		System.out.println(mySL);
-		mySL.printReverse();
-		mySL.addFront("Blueberry Muffin");
+		mySL.postAddNode(mySL.findItem("B"), "BB");
 		System.out.println(mySL);
-		mySL.printReverse();
-		mySL.addFront("Apple Pie");
-		System.out.println(mySL);
-		mySL.printReverse();
-		mySL.addLast("Orange Juice");
-		System.out.println(mySL);
-		mySL.printReverse();
-		mySL.addLast("Peach Sauce");
-		System.out.println(mySL);
-		mySL.printReverse();
-		mySL.deleteNode(mySL.findItem("Apple Pie"));
-		System.out.println(mySL);
-		mySL.printReverse();
-		mySL.deleteNode(mySL.findItem("Peach Sauce"));
-		System.out.println(mySL);
-		mySL.printReverse();
-		mySL.deleteNode(mySL.findItem("Carrot Cake"));
-		System.out.println(mySL);
-		mySL.printReverse();
-		mySL.postAddNode(mySL.findItem("Blueberry Muffin"), "Carrot Cake");
-		System.out.println(mySL);
-		mySL.printReverse();
-		mySL.preAddNode(mySL.findItem("Blueberry Muffin"), "Apple Pie" );
-		System.out.println(mySL);
-		mySL.printReverse();
-		mySL.postAddNode(mySL.findItem("Carrot Cake"), "Danish Delight" );
-		System.out.println(mySL);
-		mySL.printReverse();
-		mySL.preAddNode(mySL.findItem("Orange Juice"), "Mango Smoothie" );
-		System.out.println(mySL);
-		mySL.printReverse();
-		mySL.postAddNode(mySL.findItem("Orange Juice"), "Peach Sauce" );
-		System.out.println(mySL);
-		mySL.printReverse();
-		mySL.deleteList();
-		System.out.println(mySL);
-		mySL.printReverse();
+		System.out.println(mySL.Size());
+		/*
+		 * System.out.println(mySL); mySL.printReverse();
+		 * mySL.addFront("Carrot Cake"); System.out.println(mySL);
+		 * mySL.printReverse(); mySL.addFront("Blueberry Muffin");
+		 * System.out.println(mySL); mySL.printReverse();
+		 * mySL.addFront("Apple Pie"); System.out.println(mySL);
+		 * mySL.printReverse(); mySL.addLast("Orange Juice");
+		 * System.out.println(mySL); mySL.printReverse();
+		 * mySL.addLast("Peach Sauce"); System.out.println(mySL);
+		 * mySL.printReverse(); mySL.deleteNode(mySL.findItem("Apple Pie"));
+		 * System.out.println(mySL); mySL.printReverse();
+		 * mySL.deleteNode(mySL.findItem("Peach Sauce"));
+		 * System.out.println(mySL); mySL.printReverse();
+		 * mySL.deleteNode(mySL.findItem("Carrot Cake"));
+		 * System.out.println(mySL); mySL.printReverse();
+		 * mySL.postAddNode(mySL.findItem("Blueberry Muffin"), "Carrot Cake");
+		 * System.out.println(mySL); mySL.printReverse();
+		 * mySL.preAddNode(mySL.findItem("Blueberry Muffin"), "Apple Pie" );
+		 * System.out.println(mySL); mySL.printReverse();
+		 * mySL.postAddNode(mySL.findItem("Carrot Cake"), "Danish Delight" );
+		 * System.out.println(mySL); mySL.printReverse();
+		 * mySL.preAddNode(mySL.findItem("Orange Juice"), "Mango Smoothie" );
+		 * System.out.println(mySL); mySL.printReverse();
+		 * mySL.postAddNode(mySL.findItem("Orange Juice"), "Peach Sauce" );
+		 * System.out.println(mySL); mySL.printReverse(); mySL.deleteList();
+		 * System.out.println(mySL); mySL.printReverse();
+		 */
 	}
 
 }
