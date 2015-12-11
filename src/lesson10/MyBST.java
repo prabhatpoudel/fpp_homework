@@ -149,9 +149,63 @@ public class MyBST {
 		return this.root;
 	}
 	
-	public int leafNodes(BinaryNode t){
+	public void printleafNodes()
+	{
+		System.out.println(leafNodes(root));
 		
 	}
+	int leafCount = 0;
+	public int leafNodes(BinaryNode t){
+		
+		if (t == null) {
+			return 0;
+		} 
+		else {
+               if(t.left == null && t.right ==null)
+               {
+            	   leafCount++;
+               }
+			leafNodes(t.left);
+			leafNodes(t.right);
+			return leafCount;
+		}
+		
+		
+	}
+    
+	int size=0;
+	public int size(){
+		if(root == null)
+		{
+			size =0;
+		}
+		 
+		BinaryNode b = root;
+		while(b !=null)
+		{
+			size++;
+			b=b.left;
+		}
+		
+		BinaryNode c = root;
+		while(c !=null)
+		{
+			size++;
+			c=c.left;
+		}
+		
+		return size;
+	}
+	
+	public boolean isLeaf(){
+		if(root.left ==null && root.right ==null )
+		{
+			return true;
+		}
+		return false;
+		
+	} // check the tree is leaf or not
+
 	
 	private class BinaryNode {
 
@@ -194,6 +248,7 @@ public class MyBST {
 		System.out.println(mybst.contains(35));//true
 		
 		System.out.println(mybst.getRoot().element);
+		mybst.printleafNodes();
 
 		TreeSet<Integer> ts = new TreeSet<Integer>();
 
