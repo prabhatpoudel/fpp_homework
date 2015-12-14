@@ -173,29 +173,15 @@ public class MyBST {
 		
 	}
     
-	int size=0;
-	public int size(){
-		if(root == null)
-		{
-			size =0;
+	public int size() {
+		  return(size(root)); 
 		}
-		 
-		BinaryNode b = root;
-		while(b !=null)
-		{
-			size++;
-			b=b.left;
-		}
-		
-		BinaryNode c = root;
-		while(c !=null)
-		{
-			size++;
-			c=c.left;
-		}
-		
-		return size;
-	}
+	private int size(BinaryNode node) { 
+		  if (node == null) return(0); 
+		  else { 
+		    return(size(node.left) + 1 + size(node.right)); 
+		  } 
+		} 
 	
 	public boolean isLeaf(){
 		if(root.left ==null && root.right ==null )
@@ -249,6 +235,7 @@ public class MyBST {
 		
 		System.out.println(mybst.getRoot().element);
 		mybst.printleafNodes();
+		System.out.println("Size of the BinaryTree is: "+mybst.size());
 
 		TreeSet<Integer> ts = new TreeSet<Integer>();
 
